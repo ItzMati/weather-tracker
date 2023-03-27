@@ -49,9 +49,9 @@ def job():
         visibility = response["visibility"]
         windspeed = response["wind"]["speed"]
         clouds = response["clouds"]["all"]
-        time = dt.datetime.utcfromtimestamp((response["dt"]-response["timezone"])).strftime('%m-%d-%Y %H:%M')
-        sunrise = dt.datetime.utcfromtimestamp(response["sys"]["sunrise"]-response["timezone"]).strftime('%H:%M:%S')
-        sunset = dt.datetime.utcfromtimestamp(response["sys"]["sunset"]-response["timezone"]).strftime('%H:%M:%S')
+        time = dt.datetime.utcfromtimestamp((response["dt"]+response["timezone"])).strftime('%m-%d-%Y %H:%M')
+        sunrise = dt.datetime.utcfromtimestamp(response["sys"]["sunrise"]+response["timezone"]).strftime('%H:%M:%S')
+        sunset = dt.datetime.utcfromtimestamp(response["sys"]["sunset"]+response["timezone"]).strftime('%H:%M:%S')
 
         values = [name, description, temp, tempf, humidity, visibility, windspeed, clouds, time, sunrise, sunset]
 
